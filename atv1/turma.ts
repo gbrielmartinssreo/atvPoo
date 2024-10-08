@@ -32,6 +32,7 @@ export class Turma{
 
 	public addAluno(aluno:Aluno){
 		this._alunos.push(aluno);
+		aluno.addTurmasParticipadas(this);
 	}
 
 	public listarAlunos(){
@@ -57,6 +58,11 @@ export class Turma{
 
 	public getAlunos(){
 		return this._alunos;
+	}
+
+	public set professor(professor:Professor){
+		this._professor=professor;
+		this._professor.addTurmasParticipadas(this);
 	}
 }
 

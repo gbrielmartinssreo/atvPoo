@@ -14,4 +14,12 @@ export class Aluno extends Pessoa{
             this._nome=nome;
         }
 
+        public addTurmasParticipadas(turma:Turma):void{
+                super.addTurmasParticipadas(turma);
+        }
+
+        public listarTurmasParticipadas():void{
+                super.listarTurmasParticipadas();
+        }
+
 }

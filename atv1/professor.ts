@@ -6,53 +6,63 @@ import { Aluno } from "./aluno";
 
 export class Professor extends Pessoa {
 
-  constructor(turmasParticipadas: Turma[], nome: string) {
-    super(turmasParticipadas, nome);
-  }
+        constructor(turmasParticipadas: Turma[], nome: string) {
+                super(turmasParticipadas, nome);
+        }
 
-  public encontrarDisciplinasMinistradas(curso: Curso): Disciplina[] {
-    const disciplinasMinistradas: Disciplina[] = [];
+        private encontrarDisciplinasMinistradas(curso: Curso): Disciplina[] {
 
-    disciplinasMinistradas.forEach(disciplina => {
-      const turmasDoProfessor = disciplina.getTurmas().filter(turma => turma.professor=== this);
+                let disciplinasMinistradas: Disciplina[] = [];
 
-      if (turmasDoProfessor.length > 0) {
-        disciplinasMinistradas.push(disciplina);
-      }
-    });
+                disciplinasMinistradas.forEach(disciplina => {
+                        let turmasDoProfessor = disciplina.getTurmas().filter(turma => turma.professor=== this);
 
-    return disciplinasMinistradas;
-  }
+                        if (turmasDoProfessor.length > 0) {
+                                    disciplinasMinistradas.push(disciplina);
+                        }
+                });
 
-  public listarDisciplinasMinistradas(curso: Curso): void {
-    const disciplinas = this.encontrarDisciplinasMinistradas(curso);
+                return disciplinasMinistradas;
+        }
 
-    if (disciplinas.length > 0) {
-      console.log(`Disciplinas ministradas por ${this.nome}:`);
-      disciplinas.forEach(disciplina => {
-        console.log(`- ${disciplina.nome}`);
-      });
-    } else {
-      console.log(`O professor ${this.nome} não ministra nenhuma disciplina neste curso.`);
-    }
-  }
+        public listarDisciplinasMinistradas(curso: Curso): void {
+                const disciplinas = this.encontrarDisciplinasMinistradas(curso);
 
-  public listarAlunos(curso: Curso): void {
-    const alunos: Aluno[] = [];
+                if (disciplinas.length > 0) {
+                        console.log(`Disciplinas ministradas por ${this.nome}:`);
+                        disciplinas.forEach(disciplina => {
+                                console.log(`- ${disciplina.nome}`);
+                        });
+                } else {
+                          console.log(`O professor ${this.nome} não ministra nenhuma disciplina neste curso.`);
+                }
+        }
 
-    this._turmasParticipadas.forEach(turma => {
-      turma.getAlunos().forEach(aluno => {
-        alunos.push(aluno);
-      });
-    });
+        public listarAlunos(curso: Curso): void {
+                const alunos: Aluno[] = [];
 
-    if (alunos.length > 0) {
-      console.log(`Alunos do Professor ${this.nome}:`);
-      alunos.forEach(aluno => {
-        console.log(`- ${aluno.nome}`);
-      });
-    } else {
-      console.log(`O professor ${this.nome} não tem alunos neste curso.`);
-    }
-  }
+                this._turmasParticipadas.forEach(turma => {
+                        turma.getAlunos().forEach(aluno => {
+                                alunos.push(aluno);
+                        });
+                });
+
+                if (alunos.length > 0) {
+                        console.log(`Alunos do Professor ${this.nome}:`);
+
+                        alunos.forEach(aluno => {
+                                console.log(`- ${aluno.nome}`);
+                        });
+                } else {
+                        console.log(`O professor ${this.nome} não tem alunos neste curso.`);
+                }
+        }
+
+        public addTurmasParticipadas(turma:Turma):void{
+                super.addTurmasParticipadas(turma);
+        }
+
+        public listarTurmasParticipadas():void{
+                super.listarTurmasParticipadas();
+        }
 }

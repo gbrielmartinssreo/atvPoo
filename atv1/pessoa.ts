@@ -17,6 +17,7 @@ export class Pessoa {
         for(let i=0;i<this._turmasParticipadas.length;i++){
             console.log(`${this._turmasParticipadas[i]}\n`);
         }
+        console.log("penis")
     }
 
     protected get nome(){
