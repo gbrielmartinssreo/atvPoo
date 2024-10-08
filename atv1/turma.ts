@@ -7,7 +7,7 @@ export class Turma{
 	private _alunos:Aluno[];
 	private _semestre:string;
 
-	constructor(numeroTurma:number,professor:Professor,alunos:Aluno,semestre:number){
+	constructor(numeroTurma:number,professor:Professor,alunos:Aluno[],semestre:string){
 		this._numeroTurma=numeroTurma;
 		this._professor=professor;
 		this._alunos=alunos;
@@ -22,8 +22,8 @@ export class Turma{
 		this._numeroTurma=numeroTurma;
 	}
 
-	public addProfessor(professor:Professor):void{
-		this._professor=professor;
+	public get professor(){
+		return this._professor;
 	}
 
 	public impProfessor(){
@@ -49,9 +49,14 @@ export class Turma{
 		return sNum;
 	}
 
-	public getSemestreS():string{
-		let s=this._semestre.slice(-2);
-		return s;
+	public getSemestreS():number{
+		let s=this._semestre.slice(-1);
+		let sNum=parseInt(s,10);
+		return sNum;
+	}
+
+	public getAlunos(){
+		return this._alunos;
 	}
 }
 

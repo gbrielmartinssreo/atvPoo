@@ -7,7 +7,7 @@ export class Disciplina{
 
 	constructor(nome:string,semestrePermite:number,turmas:Turma[]){
 		this._nome=nome;
-		this._validaSemestre(semestrePermite);
+		this.validaSemestre(semestrePermite);
 		this._semestrePermite=semestrePermite;
 		this._turmas=turmas;
 	}
@@ -25,7 +25,7 @@ export class Disciplina{
 	}
 
 	public set semestrePermite(semestrePermite:number){
-		this._validaSemestre(semestrePermite);
+		this.validaSemestre(semestrePermite);
 		this._semestrePermite=semestrePermite;
 	}
 
@@ -36,10 +36,14 @@ export class Disciplina{
 	}
 	
 	public addTurma(turma:Turma):void{
-		if(turma.getSemestreS==this._semestrePermite){
-		this._turmas.push(turma);
+		if(turma.getSemestreS() === this._semestrePermite){
+			this._turmas.push(turma);
 		}
 		throw new Error("semestre incompativel");
 	
+	}
+
+	public getTurmas(){
+		return this._turmas;
 	}
 }

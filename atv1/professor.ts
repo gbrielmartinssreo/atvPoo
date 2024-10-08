@@ -13,8 +13,8 @@ export class Professor extends Pessoa {
   public encontrarDisciplinasMinistradas(curso: Curso): Disciplina[] {
     const disciplinasMinistradas: Disciplina[] = [];
 
-    curso.disciplinas.forEach(disciplina => {
-      const turmasDoProfessor = disciplina.turmas.filter(turma => turma.professor === this);
+    disciplinasMinistradas.forEach(disciplina => {
+      const turmasDoProfessor = disciplina.getTurmas().filter(turma => turma.professor=== this);
 
       if (turmasDoProfessor.length > 0) {
         disciplinasMinistradas.push(disciplina);
@@ -41,7 +41,7 @@ export class Professor extends Pessoa {
     const alunos: Aluno[] = [];
 
     this._turmasParticipadas.forEach(turma => {
-      turma.alunos.forEach(aluno => {
+      turma.getAlunos().forEach(aluno => {
         alunos.push(aluno);
       });
     });
