@@ -17,4 +17,8 @@ export class Curso{
 		}
 	}
 
+	public getDisciplinas(){
+		return this._disciplinas;
+	}
+
 }
