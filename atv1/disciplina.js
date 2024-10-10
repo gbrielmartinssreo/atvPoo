@@ -47,9 +47,6 @@ var Disciplina = /** @class */ (function () {
             throw new Error("semestre incompativel da turma ".concat(turma.numeroTurma));
         }
     };
-    Disciplina.prototype.getTurmas = function () {
-        return this._turmas;
-    };
     return Disciplina;
 }());
 exports.Disciplina = Disciplina;

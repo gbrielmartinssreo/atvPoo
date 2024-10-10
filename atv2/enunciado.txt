@@ -1,0 +1,6 @@
+A disciplina de Programação Orientada a Objetos que você está cursando é vinculada ao curso de Engenharia de Computação. A disciplina pode não ser ofertada em um semestre, mas ser ofertada com várias turmas em outro semestre. Cada turma pode ter um professor diferente e seu próprio conjunto de estudantes. Considerando seus conhecimentos em POO, apresente a modelagem UML e a implementação de um programa que trate o caso acima, considerando ainda as seguintes funcionalidades:
+
+1. a contagem de turmas em que um determinado professor já ministrou aulas;
+2. a lista de disciplinas que um docente já ministrou;
+3. a listagem dos estudantes de uma turma;
+4. a listagem dos estudantes que tiveram aulas com um determinado professor.
