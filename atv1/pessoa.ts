@@ -1,21 +1,21 @@
 import {Turma} from "./turma"
 
 export class Pessoa {
-    protected _turmasParticipadas: Turma[];
+    protected _turmas: Turma[];
     protected _nome:string;
 
-    constructor(turmasParticipadas:Turma[],nome:string){
-        this._turmasParticipadas=turmasParticipadas;
+    constructor(turmas:Turma[],nome:string){
+        this._turmas=turmas;
         this._nome=nome;
     }
 
     protected addTurmasParticipadas(turma:Turma):void{
-        this._turmasParticipadas.push(turma);
+        this._turmas.push(turma);
     }
 
-    protected listarTurmasParticipadas():void{
-        for(let i=0;i<this._turmasParticipadas.length;i++){
-            console.log(`${this._turmasParticipadas[i]}\n`);
+    protected listarDisciplinasTurmasParticipadas():void{
+        for(let i=0;i<this._turmas.length;i++){
+            console.log(`${this._turmas[i].disciplina} ${this._turmas[i].numeroTurma}\n`);
         }
         console.log("penis")
     }

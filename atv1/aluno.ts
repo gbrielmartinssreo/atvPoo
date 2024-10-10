@@ -2,8 +2,8 @@ import {Pessoa} from "./pessoa"
 import {Turma} from "./turma"
 
 export class Aluno extends Pessoa{
-        constructor(turmasParticipadas:Turma[],nome:string){
-            super(turmasParticipadas,nome);
+        constructor(turmas:Turma[],nome:string){
+            super(turmas,nome);
         }
 
         public get nome(){
@@ -18,7 +18,7 @@ export class Aluno extends Pessoa{
                 super.addTurmasParticipadas(turma);
         }
 
-        public listarTurmasParticipadas():void{
+        public listarDisciplinasTurmasParticipadas():void{
                 super.listarTurmasParticipadas();
         }
 

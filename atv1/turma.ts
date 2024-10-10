@@ -1,17 +1,28 @@
+import {Disciplina} from "./disciplina";
 import {Professor} from "./professor";
 import {Aluno} from "./aluno";
 
 export class Turma{
+	private _disciplina:Disciplina;
 	private _numeroTurma:number;
 	private _professor:Professor;
 	private _alunos:Aluno[];
 	private _semestre:string;
 
-	constructor(numeroTurma:number,professor:Professor,alunos:Aluno[],semestre:string){
+	constructor(disciplina:Disciplina,numeroTurma:number,professor:Professor,alunos:Aluno[],semestre:string){
+		this._disciplina=disciplina;
 		this._numeroTurma=numeroTurma;
 		this._professor=professor;
 		this._alunos=alunos;
 		this._semestre=semestre;
+	}
+
+	public get disciplina(){
+		return this._disciplina;
+	}
+
+	public set disciplina(disciplina:Disciplina){
+		this._disciplina=disciplina;
 	}
 
 	public get numeroTurma(){
@@ -26,8 +37,13 @@ export class Turma{
 		return this._professor;
 	}
 
+	public set professor(professor:Professor){
+		this._professor=professor;
+		professor.addTurmas(this);
+	}
+
 	public impProfessor(){
-		console.log(`${this._professor}`);
+		console.log(`${this._professor.nome}`);
 	}
 
 	public addAluno(aluno:Aluno){
@@ -37,7 +53,11 @@ export class Turma{
 
 	public listarAlunos(){
 		for(let i=0;i<this._alunos.length;i++)
-			console.log(`${this._alunos[i]}`);
+			console.log(`${this._alunos[i].nome}`);
+	}
+
+	public getAlunos(){
+		return this._alunos;
 	}
 
 	public set semestre(semestre:string){
@@ -56,14 +76,6 @@ export class Turma{
 		return sNum;
 	}
 
-	public getAlunos(){
-		return this._alunos;
-	}
-
-	public set professor(professor:Professor){
-		this._professor=professor;
-		this._professor.addTurmasParticipadas(this);
-	}
 }
 
 

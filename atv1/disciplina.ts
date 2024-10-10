@@ -1,15 +1,25 @@
+import {Curso} from "./curso"
 import {Turma} from "./turma"
 
 export class Disciplina{
+	private _curso:Curso;
 	private _nome:string;
 	private _semestrePermite:number;
 	private _turmas:Turma[];
 
-	constructor(nome:string,semestrePermite:number,turmas:Turma[]){
+	constructor(curso:Curso,nome:string,semestrePermite:number,turmas:Turma[]){
+		this._curso=curso;
 		this._nome=nome;
-		this.validaSemestre(semestrePermite);
 		this._semestrePermite=semestrePermite;
 		this._turmas=turmas;
+	}
+
+	public get curso(){
+		return this._curso;
+	}
+
+	public set curso(curso:Curso){
+		this._curso=curso;
 	}
 
 	public get nome(){
@@ -25,22 +35,17 @@ export class Disciplina{
 	}
 
 	public set semestrePermite(semestrePermite:number){
-		this.validaSemestre(semestrePermite);
 		this._semestrePermite=semestrePermite;
 	}
 
-	public validaSemestre(semestrePermite:number):void{
-		if(semestrePermite != 1 && semestrePermite !=2){
-			throw new Error("permissao de semestre invalida");
-		}
-	}
-	
 	public addTurma(turma:Turma):void{
 		if(turma.getSemestreS() === this._semestrePermite){
 			this._turmas.push(turma);
 		}
-		throw new Error("semestre incompativel");
-	
+		else{
+			throw new Error("semestre incompativel");
+		}
+
 	}
 
 	public getTurmas(){
