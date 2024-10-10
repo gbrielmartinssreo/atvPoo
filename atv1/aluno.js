@@ -19,8 +19,8 @@ exports.Aluno = void 0;
 var pessoa_1 = require("./pessoa");
 var Aluno = /** @class */ (function (_super) {
     __extends(Aluno, _super);
-    function Aluno(turmasParticipadas, nome) {
-        return _super.call(this, turmasParticipadas, nome) || this;
+    function Aluno(turmas, nome) {
+        return _super.call(this, turmas, nome) || this;
     }
     Object.defineProperty(Aluno.prototype, "nome", {
         get: function () {
@@ -32,11 +32,11 @@ var Aluno = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Aluno.prototype.addTurmasParticipadas = function (turma) {
-        _super.prototype.addTurmasParticipadas.call(this, turma);
+    Aluno.prototype.addTurmas = function (turma) {
+        _super.prototype.addTurmas.call(this, turma);
     };
-    Aluno.prototype.listarTurmasParticipadas = function () {
-        _super.prototype.listarTurmasParticipadas.call(this);
+    Aluno.prototype.listarDisciplinasTurmasParticipadas = function () {
+        _super.prototype.listarDisciplinasTurmasParticipadas.call(this);
     };
     return Aluno;
 }(pessoa_1.Pessoa));

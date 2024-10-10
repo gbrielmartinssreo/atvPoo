@@ -1,25 +1,72 @@
 import { Curso } from "./curso";
-import { Aluno } from "./aluno";
-import { Professor } from "./professor";
-import { Turma } from "./turma";
 import { Disciplina } from "./disciplina";
+import { Turma } from "./turma";
+import { Professor } from "./professor";
+import { Aluno } from "./aluno";
 
-// Criando instâncias
-let aluno1 = new Aluno([], "thiago");
-let aluno2 = new Aluno([], "jair bozonaro");
-let professor1 = new Professor([], "boules");
-let turmaVe1 = new Turma(1, professor1, [], "Gol"); // Atribuindo o professor à turma
-let poo = new Disciplina("Programacao orientada a objetos", 2, [turmaVe1]); // Adicionando turma à disciplina
+// criando instancias de Curso, Disciplina, Turma, Professor e Aluno
 let engcomp = new Curso([]);
+let poo = new Disciplina(undefined, "POO", 2, []);
+let webdev = new Disciplina(undefined, "Desenvolvimento Web", 2, []);
+let turmaPooV1 = new Turma(undefined, 1, undefined, [], "2022/1");
+let turmaWebdevV1 = new Turma(undefined, 1, undefined, [], "2022/2");
+let renan = new Professor([], "Renan");
+let joao = new Professor([], "João");
+let thiago = new Aluno([], "Thiago");
+let maria = new Aluno([], "Maria");
+let pedro = new Aluno([], "Pedro");
 
-// Adicionando disciplinas ao curso
+// associando disciplinas ao curso
 engcomp.addDisciplina(poo);
+engcomp.addDisciplina(webdev);
 
-// Exemplos de uso:
-console.log("Turmas do professor:");
-professor1.listarTurmasParticipadas();
+// associando turmas às disciplinas com verificação de semestre
+try{
+    poo.addTurma(turmaPooV1);
+}
+catch (erro:any){
+    console.log(erro.message);
+    process.exit(1);
+}
 
-console.log("Disciplinas do curso:");
+try{
+    webdev.addTurma(turmaWebdevV1);
+}
+catch (erro:any){
+    console.log(erro.message);
+    process.exit(1);
+}
+
+// associando professores e alunos as turmas
+turmaPooV1.professor = renan;
+turmaPooV1.addAluno(thiago);
+turmaPooV1.addAluno(maria);
+turmaWebdevV1.professor = joao;
+turmaWebdevV1.addAluno(pedro);
+
+console.log("--- Testando a funcionalidade do sistema ---\n");
+
+// 1. contagem de turmas de um professor
+console.log("1. Quantidade de turmas ministradas por Renan:");
+renan.contTurmas();
+console.log("\n");
+
+// 2. listagem de disciplinas ministradas por um professor
+console.log("2. Disciplinas ministradas por Renan:");
+renan.listarDisciplinasTurmasParticipadas();
+console.log("\n");
+
+// 3. listagem de alunos de uma turma
+console.log("3. Alunos da turma de POO:");
+turmaPooV1.listarAlunos();
+console.log("\n");
+
+// 4. listagem de alunos que tiveram aulas com um professor
+console.log("4. Alunos que tiveram aulas com Renan:");
+renan.listarAlunosProfessor();
+console.log("\n");
+
+// 5. listagem de disciplinas de um curso
+console.log("5. Disciplinas do curso de Engenharia de Computação:");
 engcomp.listarDisciplinas();
-
-// Mais exemplos de uso...
+console.log("\n");

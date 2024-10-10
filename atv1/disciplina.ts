@@ -41,14 +41,11 @@ export class Disciplina{
 	public addTurma(turma:Turma):void{
 		if(turma.getSemestreS() === this._semestrePermite){
 			this._turmas.push(turma);
+			turma.disciplina=this;
 		}
 		else{
-			throw new Error("semestre incompativel");
+			throw new Error(`semestre incompativel da turma ${turma.numeroTurma}`);
 		}
 
-	}
-
-	public getTurmas(){
-		return this._turmas;
 	}
 }

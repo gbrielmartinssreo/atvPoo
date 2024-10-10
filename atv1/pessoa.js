@@ -2,18 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pessoa = void 0;
 var Pessoa = /** @class */ (function () {
-    function Pessoa(turmasParticipadas, nome) {
-        this._turmasParticipadas = turmasParticipadas;
+    function Pessoa(turmas, nome) {
+        this._turmas = turmas;
         this._nome = nome;
     }
-    Pessoa.prototype.addTurmasParticipadas = function (turma) {
-        this._turmasParticipadas.push(turma);
+    Pessoa.prototype.addTurmas = function (turma) {
+        this._turmas.push(turma);
     };
-    Pessoa.prototype.listarTurmasParticipadas = function () {
-        for (var i = 0; i < this._turmasParticipadas.length; i++) {
-            console.log("".concat(this._turmasParticipadas[i], "\n"));
+    Pessoa.prototype.listarDisciplinasTurmasParticipadas = function () {
+        for (var i = 0; i < this._turmas.length; i++) {
+            console.log("".concat(this._turmas[i].disciplina.nome, " ").concat(this._turmas[i].numeroTurma, "\n"));
         }
-        console.log("penis");
     };
     Object.defineProperty(Pessoa.prototype, "nome", {
         get: function () {

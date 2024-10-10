@@ -17,6 +17,7 @@ export class Turma{
 		this._semestre=semestre;
 	}
 
+
 	public get disciplina(){
 		return this._disciplina;
 	}
@@ -48,16 +49,14 @@ export class Turma{
 
 	public addAluno(aluno:Aluno){
 		this._alunos.push(aluno);
-		aluno.addTurmasParticipadas(this);
+		aluno.addTurmas(this);
 	}
 
 	public listarAlunos(){
-		for(let i=0;i<this._alunos.length;i++)
-			console.log(`${this._alunos[i].nome}`);
-	}
-
-	public getAlunos(){
-		return this._alunos;
+		if(this._alunos.length>0) {
+			for (let i = 0; i < this._alunos.length; i++)
+				console.log(`${this._alunos[i].nome}`);
+		}
 	}
 
 	public set semestre(semestre:string){

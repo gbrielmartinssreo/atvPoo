@@ -17,18 +17,23 @@ export class Professor extends Pessoa {
             this._nome=nome;
         }
 
-        public addTurmasParticipadas(turma:Turma):void{
-                super.addTurmasParticipadas(turma);
+        public addTurmas(turma:Turma):void{
+                super.addTurmas(turma);
         }
 
         public listarDisciplinasTurmasParticipadas():void{
-                super.listarTurmasParticipadas();
+                super.listarDisciplinasTurmasParticipadas();
         }
 
-        public listarAlunosProfessor(){
-            this._turmas.forEach(this._turmas=>{
-                this._turmas.listarAlunos();
-            });
+        public listarAlunosProfessor() {
+                this._turmas.forEach(turma => { // Use um nome diferente, como "turma"
+                     turma.listarAlunos();       // Chama o método na turma individual
+                });
+        }
+
+
+    public contTurmas(){
+            console.log(`qntTurmas=${this._turmas.length}`);
         }
 
 }

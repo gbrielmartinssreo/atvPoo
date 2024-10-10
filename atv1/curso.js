@@ -7,10 +7,11 @@ var Curso = /** @class */ (function () {
     }
     Curso.prototype.addDisciplina = function (disciplina) {
         this._disciplinas.push(disciplina);
+        disciplina.curso = this;
     };
     Curso.prototype.listarDisciplinas = function () {
         for (var i = 0; i < this._disciplinas.length; i++) {
-            console.log("".concat(this._disciplinas[i], "\n"));
+            console.log("".concat(this._disciplinas[i].nome, "\n"));
         }
     };
     Curso.prototype.getDisciplinas = function () {

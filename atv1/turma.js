@@ -2,12 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Turma = void 0;
 var Turma = /** @class */ (function () {
-    function Turma(numeroTurma, professor, alunos, semestre) {
+    function Turma(disciplina, numeroTurma, professor, alunos, semestre) {
+        this._disciplina = disciplina;
         this._numeroTurma = numeroTurma;
         this._professor = professor;
         this._alunos = alunos;
         this._semestre = semestre;
     }
+    Object.defineProperty(Turma.prototype, "disciplina", {
+        get: function () {
+            return this._disciplina;
+        },
+        set: function (disciplina) {
+            this._disciplina = disciplina;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Turma.prototype, "numeroTurma", {
         get: function () {
             return this._numeroTurma;
@@ -24,21 +35,26 @@ var Turma = /** @class */ (function () {
         },
         set: function (professor) {
             this._professor = professor;
-            this._professor.addTurmasParticipadas(this);
+            professor.addTurmas(this);
         },
         enumerable: false,
         configurable: true
     });
     Turma.prototype.impProfessor = function () {
-        console.log("".concat(this._professor));
+        console.log("".concat(this._professor.nome));
     };
     Turma.prototype.addAluno = function (aluno) {
         this._alunos.push(aluno);
-        aluno.addTurmasParticipadas(this);
+        aluno.addTurmas(this);
     };
     Turma.prototype.listarAlunos = function () {
-        for (var i = 0; i < this._alunos.length; i++)
-            console.log("".concat(this._alunos[i]));
+        if (this._alunos.length > 0) {
+            for (var i = 0; i < this._alunos.length; i++)
+                console.log("".concat(this._alunos[i].nome));
+        }
+    };
+    Turma.prototype.getAlunos = function () {
+        return this._alunos;
     };
     Object.defineProperty(Turma.prototype, "semestre", {
         get: function () {
@@ -56,9 +72,6 @@ var Turma = /** @class */ (function () {
         var s = this._semestre.slice(-1);
         var sNum = parseInt(s, 10);
         return sNum;
-    };
-    Turma.prototype.getAlunos = function () {
-        return this._alunos;
     };
     return Turma;
 }());

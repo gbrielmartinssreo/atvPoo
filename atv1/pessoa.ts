@@ -9,15 +9,14 @@ export class Pessoa {
         this._nome=nome;
     }
 
-    protected addTurmasParticipadas(turma:Turma):void{
+    protected addTurmas(turma:Turma):void{
         this._turmas.push(turma);
     }
 
     protected listarDisciplinasTurmasParticipadas():void{
         for(let i=0;i<this._turmas.length;i++){
-            console.log(`${this._turmas[i].disciplina} ${this._turmas[i].numeroTurma}\n`);
+            console.log(`${this._turmas[i].disciplina.nome} ${this._turmas[i].numeroTurma}\n`);
         }
-        console.log("penis")
     }
 
     protected get nome(){
