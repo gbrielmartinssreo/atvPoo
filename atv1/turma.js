@@ -53,9 +53,6 @@ var Turma = /** @class */ (function () {
                 console.log("".concat(this._alunos[i].nome));
         }
     };
-    Turma.prototype.getAlunos = function () {
-        return this._alunos;
-    };
     Object.defineProperty(Turma.prototype, "semestre", {
         get: function () {
             var s = this._semestre.slice(0, -2);

@@ -1,0 +1,3 @@
+ Comandos
+tsc --esModuleInterop main.ts
+node main.js
