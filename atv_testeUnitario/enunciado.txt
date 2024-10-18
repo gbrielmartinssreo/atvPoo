@@ -1,0 +1,26 @@
+Enunciado de Teste Unitário com Jest em TypeScript
+Contexto:
+
+Você está desenvolvendo uma função em TypeScript chamada calculateDiscount que calcula o desconto de um produto com base em seu preço e em um código promocional.
+
+Objetivo:
+
+Escreva testes unitários utilizando Jest para a função calculateDiscount que cubram os seguintes cenários:
+
+Cenário 1: Verificar se a função retorna o desconto correto quando um código promocional válido é aplicado.
+
+Cenário 2: Verificar se a função retorna zero quando o código promocional é inválido.
+
+Cenário 3: Verificar se a função retorna zero quando o código promocional é nulo.
+
+Cenário 4: Verificar se a função retorna um valor menor que o preço original quando um desconto é aplicado.
+
+Requisitos:
+
+Utilize a biblioteca Jest para escrever seus testes.
+
+Escreva testes separados para cada cenário.
+
+Use expect para validar os resultados esperados.
+
+Utilize mocks para simular dependências externas.
